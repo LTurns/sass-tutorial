@@ -1,0 +1,53 @@
+// theme colours
+
+$primary: #326dee;
+$secondary: #1ac888;
+$error: #d32752;
+$info: #f6c31c;
+
+// sass lets you map through variables
+// color palettes
+// maps
+$colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "error": $error,
+    "info": $info,
+    "blue": blue,
+    "red": red,
+    "white": white,
+    "black": black
+);
+
+// @debug map-get($colors, "error");
+// @debug map-has-key($colors, "secondary");
+// @debug map-remove($colors, "primary");
+// @debug map-merge($colors, ("pink" : #ffc0bc));
+
+.test-btn {
+    background-color: map-get($colors, "pink")
+}
+
+
+// spacing
+
+// always start with base 
+// we can manipulate these to create large paddings and small paddings off the base value (that way if we change the base, it can then directly change all the other sizes off the back of this)
+
+$base-padding: 0.75rem;
+$base-margin: 0.75rem;
+
+// borders
+$base-border-thickness: 1px;
+$base-border-radius: 20px;
+
+// box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+
+// font sizes
+$base-font-size: 1rem;
+$font-size-sm: $base-font-size * 0.75;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;
+

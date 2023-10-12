@@ -1,0 +1,7 @@
+@function light-comp($color) {
+    // complement is a built in sass function which finds complimentary colours to the one you have passed through
+    $complement: complement($color);
+    $light-complement: lighten($complement, 5);
+
+    @return $light-complement;
+}

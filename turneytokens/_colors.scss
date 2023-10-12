@@ -1,0 +1,59 @@
+// loops
+// great way to create classes and assign it the assigning key/values
+// from the colors map in variables.scss
+@each $key, $val in $colors {
+    .text-#{$key} {
+        color: $val;
+    }
+
+    .text-hover-#{$key} {
+        &:hover {
+            color: $val;
+        }
+    }
+
+    .bg-#{$key} {
+        background-color: $val;
+    }
+
+    @if($val != black and $val != white){
+
+    // light variations
+    @for $i from 1 through 9 {
+        .text-#{$key}-light-#{$i} {
+            // mix is a built in sass function with which you can mix 2 colours together at a certain percentage - here we are increasing the number, therefore getting lighter and lighter as we increment and mix with the color white.
+            color: mix(white, $val, $i * 10%)
+        }
+
+        .text-hover-#{$key}-light-#{$i} {
+            &:hover {
+                color: mix(white, $val, $i * 10%)
+            }
+        }
+
+        .bg-#{$key}-light-#{$i} {
+            // mix is a built in sass function with which you can mix 2 colours together at a certain percentage - here we are increasing the number, therefore getting lighter and lighter as we increment and mix with the color white.
+            background-color: mix(white, $val, $i * 10%)
+        }
+    }
+
+        // dark variations
+        @for $i from 1 through 9 {
+            .text-#{$key}-dark-#{$i} {
+                //this time mixing with black
+                color: mix(black, $val, $i * 10%)
+            }
+
+            .text-hover-#{$key}-dark-#{$i} {
+                &:hover {
+                    color: mix(black, $val, $i * 10%)
+                }
+            }
+    
+            .bg-#{$key}-dark-#{$i} {
+                // mix is a built in sass function with which you can mix 2 colours together at a certain percentage - here we are increasing the number, therefore getting lighter and lighter as we increment and mix with the color white.
+                background-color: mix(black, $val, $i * 10%)
+            }
+        }
+    }
+}

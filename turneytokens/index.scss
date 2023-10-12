@@ -1,0 +1,28 @@
+// the order of import matters because it should be ordered in terms of dependency. For example, base needs variables so should be put second. This is important because you can then use these different sections across files without importing (it is all done in here).
+
+// this is the tree of dependencies when importing:
+@import 'functions';
+// variables & functions
+@import 'variables';
+
+@import 'breakpoints';
+@import 'grid';
+
+
+
+// base and layout - these are reset styles, the first ones you'd need
+@import 'base';
+
+// colors
+@import 'colors';
+
+// buttons
+@import 'components/button';
+@import 'components/card';
+@import 'components/navbar';
+
+// components (button, card, navbar)
+@import 'components/card';
+// utilities
+
+@import 'utilities';

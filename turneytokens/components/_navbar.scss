@@ -1,0 +1,32 @@
+// extend is different to mixins - extend does not have parameters. in the css it is the equivalent of .flex-layout, navbar {} - everything which uses the extend will be added on to the css rule with a comma
+// whereas mixins generate separate css for every element that uses the mixin
+
+// placeholder rules are rules that don't need to get compiled. They are made by turning .flex-layout into %flex-layout. The % means it is a placeholder and whilst classes and elements that use this rule will get generated, this rule
+// itself no longer needs to get compiled individually too. The placeholder therefore eradicates some duplication.
+
+%flex-layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  
+  .navbar {
+    @extend %flex-layout;
+    padding: $base-padding $base-padding * 2;
+    box-shadow: $base-box-shadow;
+    .site-title {
+      font-size: $font-size-lg;
+    }
+    .container {
+      @extend %flex-layout;
+    }
+  }
+  
+  @each $key, $val in $colors {
+    .navbar-#{$key} {
+      @extend .navbar;
+      background-color: $val;
+    }
+  }
